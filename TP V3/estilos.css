@@ -1,0 +1,345 @@
+/* Alumno Daniel de Acha*/
+/* Comentarios para el profesor: Hay 3 animaciones en esta pagina. En el logo, en el menu y en el boton enviar. Lineas CSS 81 155 314. 
+No agregue el tercer punto de corte en el media query porque no lo considere necesario.*/
+* {
+	margin: 0;
+	padding: 0;
+}
+h3 {
+    font-family: 'Vollkorn SC', Arial, Helvetica, sans-serif;
+}
+body {
+	background:whitesmoke;
+	color: #000;
+	font-family: 'Vollkorn SC', Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+	width: 100%;
+	max-width: 1500px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "logo header header header header header"
+						 "contenido  contenido contenido contenido sidebar sidebar"
+						 "widget widget widget widget widget widget"
+						 "footer footer footer footer  footer footer";
+}
+
+.contenedor > div,
+.contenedor .logo,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+
+}
+
+
+
+.contenedor .header {
+	background: black;
+    display: flex;
+	color: #fff;
+	grid-area: header;
+}
+
+.contenedor .contenido {
+	display: block;
+	grid-area: contenido;
+}
+
+.contenedor .sidebar {
+	grid-column: 3 / 4;
+	background: white;
+	text-align: center;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	min-height: 100px;
+	grid-area: sidebar;
+}
+
+.contenedor .widget {
+	display: block;
+	background: #5d7c9b;
+	justify-content: right;
+	align-items: center;
+	color: #fff;
+    grid-area: widget;
+}
+.contenedor .logo {
+	animation-duration: 3s;
+	animation-name: transparencia;
+	background: white;
+	color: #fff;
+	grid-area: logo;
+}
+@keyframes transparencia{
+from{ opacity: 0;}
+to{ opacity: 1;}
+}
+
+.contenedor .footer {
+	background: black;
+	color: #fff;
+	grid-area: footer;
+}
+
+@media screen and (max-width: 768px){
+	.contenedor {
+		grid-template-areas: 
+                            "header header header logo logo logo"
+						 "contenido contenido contenido contenido contenido contenido"
+						 "sidebar sidebar sidebar sidebar sidebar sidebar"
+						 "widget widget widget widget widget widget"
+						 "footer footer footer footer footer footer";
+	}
+}
+
+/* Desde aca menu hamburguesa*/
+#menu_on{
+	display: block;
+    position: relative;
+	width:30px;
+	height: 20px;
+    left: 15px;
+    top: 40px;
+	z-index: 2;
+}
+
+#menu_on span{
+	width: 100%;
+	height: 4px;
+	border-radius: 4px;
+	display: block;
+	position: absolute;
+	background: #fff;
+	transition: all 0.25s ease;
+	transform-origin : 0px 100%;
+}
+
+#menu_on span:nth-child(2){
+	top: calc(50% - 2px);
+}
+
+#menu_on span:nth-child(3){
+bottom: 0;
+}	
+	.visible_menu span:nth-child(1){
+		transform: rotate(45deg) translate(-2px,1px); 
+	}
+
+	.visible_menu span:nth-child(2){
+		opacity: 0;
+	}
+
+
+	.visible_menu span:nth-child(3){
+		transform: rotate(-45deg) translate(-3px,3px); 
+	}
+
+nav{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left:-600px;
+	width: 600px;
+	z-index: 1;
+	padding: 10px 10px 10px;
+	background: black;
+	opacity: 0;
+	transition: all 0.75s ease;
+	font-size: 1.2em;
+	overflow-y: auto;
+}
+
+.visible_menu{
+	position: fixed;
+}
+
+.visible_menu nav{
+	left: 0;
+	opacity: 1;
+}
+
+nav a{
+
+	text-decoration: none;
+	padding: 10px;
+	color: rgba(255,255,255,0.75);
+	border-bottom: 1px solid black;
+	transition: all ease 0.25s;
+}
+nav li{
+    display:inline-flex;
+    padding: 20px;
+    }
+
+nav a:hover{
+	color: rgba(255,255,255,1);
+	border-bottom-color:rgba(255,255,255,0.4);
+}
+
+
+
+
+a img{
+	width: 16px;
+	height: 16px;
+	opacity: 0.5
+}
+
+#content a:hover img{
+	opacity: 1;
+}
+.div #logo {position: fixed;
+            right: 10px;}
+
+
+.frame {position: relative;
+left: 0px;}
+
+/* Formulario de contacto*/
+#oculto { 
+	opacity: 0;
+}
+
+/* Carrousel */
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+/*Boton enviar*/
+	.button1 {background-color: white;
+		color: black;
+		width: 70px;
+		border: 2px solid #5d7c9b;
+border-radius: 8px;
+font-size: 16px;
+font-weight: bold;
+transition-duration: 0.4s}
+.button1:hover {
+	background-color: #5d7c9b; 
+	color: white;
+  }
+/*Whatsapp*/
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+.float:hover {
+	text-decoration: none;
+	color: #25d366;
+  background-color:#fff;
+}
+
+.my-float{
+	margin-top:16px;
+}

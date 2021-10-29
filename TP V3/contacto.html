@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="lol.png">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn SC" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://kit.fontawesome.com/f3d0bf9b42.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <title>Bienvenido a LOL |Hacemos lo que podemos </title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=5491130966506&text=Hola%20quisiera%20hacerle%20una%20consulta." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+    <div class="contenedor">
+        <div class="logo"><img src="LOGO3.png" alt="logo" width=100% height=100%></div>
+        <header class="header" id="#header">
+         
+        
+               <div> <a href="#" id="menu_on">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+     
+         
+            <nav><ul>	
+                <li><a href="index.html">EMPRESA</a></li>
+                <li><a href="servicios.html">SERVICIOS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+            </ul>
+            </nav>
+            
+        </header>
+        <main class="contenido">
+            <h1>LO ESTAMOS ESPERANDO</h1>
+            <p>
+                Para acceder a nuestros servicios no dude en comunicarse. Llene el formulario de contacto a continuacion que a la brevedad nos estaremos contactando.
+                <br>
+                Tambien puede ponerse en contacto mediante Whatsapp haciendo click en el boton flotante. <br><br>
+
+                
+            </p>
+            <div>
+                <form id="form" action="" class="form">
+                    <h3> <span> FORMULARIO DE CONTACTO</span></h3>
+                    <label for="name">Nombre completo <span>*</span></label> <br>
+                    <input name="name" required type="text" id="name" placeholder="Escriba su nombre aqui"> <br>
+                    <label for="email" type="text" id="email">Correo electronico <span>*</span></label> <br>
+                    <input name="email" type="text" required type="text" placeholder="Escriba su email aqui"> <br>
+                    <label for="message">Mensaje</label> <br>
+                    <textarea name="message" id="message" cols="70" rows="20"></textarea> <br>
+                    <button type="submit" class="button1">Enviar</button>
+                </form>
+                <a href="mailto:deachadaniel@gmail.com" id="oculto">mail</a>
+            
+
+            </div>
+        </main>
+        <aside class="sidebar">
+            <img src="dialogando.jpg" alt="" width=100%>
+        </aside>
+        <div class="widget">
+            <h3>MEDIOS DE PAGO</h3>
+            <p>Puede abonar nuestros servicios a traves de multiples medios de pago: <li>VISA DEBITO / VISA TARJETA DE CREDITO</li> <li>TRANSFERENCIA INTERNACIONAL Cuenta corriente 00392143/12 Banco de la Nacion Argentina SWIFT CODE NACNARBACCL</li></p>
+        </div>
+        <footer class="footer">
+            <h4>Direccion: Hipolito Yrigoyen 2320 Vicente Lopez, Buenos Aires, Argentina </h4>
+            <br>
+            <h4><i class="fab fa-whatsapp"></i> Telefono: +54.11.30966506</h4> 
+            <br>
+            <p>Powered by Daniel de Acha. Copyright 2021 | Todos los derechos reservados Lol.site LOL S.A. Hipolito Yrigoyen 2320 (1638) | Vicente Lopez | Argentina</p>
+        </footer>
+    </div>
+    <script>
+        const $form=document.querySelector('#form')
+        const $buttonMailto=document.querySelector('#oculto')
+        $form.addEventListener('submit',handleSubmit)
+
+        function handleSubmit(event) {
+            event.preventDefault()
+            const form = new FormData(this)
+            console.log(form.get('name'))
+            $buttonMailto.setAttribute('href', `mailto:deachadaniel@gmail.com?subject=${form.get('name')}${form.get('email')}&body=${form.get('message')}`)
+            $buttonMailto.click()
+       
+        } 
+     </script>
+</body>
+
+</html>
